@@ -17,6 +17,22 @@ class EntriesTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.reloadData()
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        entryController.fetchEntriesFromServer { (error) in
+            if let error = error
+            {
+                print("ERROR FETCHIGNGG")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

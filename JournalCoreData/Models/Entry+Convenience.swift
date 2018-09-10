@@ -29,12 +29,12 @@ extension Entry {
     
     convenience init?(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        guard let title = entryRepresentation.title,
-            let bodyText = entryRepresentation.bodyText,
-            let mood = entryRepresentation.mood,
-            let timestamp = entryRepresentation.timestamp,
-            let identifier = entryRepresentation.identifier else { return nil }
-        
-        self.init(title: title, bodyText: bodyText, timestamp: timestamp, mood: mood, identifier: identifier, context: context)
+//            let title = entryRepresentation.title,
+//            let bodyText = entryRepresentation.bodyText,
+//            let mood = entryRepresentation.mood,
+//            let timestamp = entryRepresentation.timestamp,
+//            let identifier = entryRepresentation.identifier
+//
+        self.init(title: entryRepresentation.title, bodyText: entryRepresentation.bodyText, timestamp: entryRepresentation.timestamp, mood: entryRepresentation.mood, identifier: entryRepresentation.identifier, context: context)
     }
 }

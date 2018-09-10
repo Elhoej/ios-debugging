@@ -46,9 +46,16 @@ class EntryDetailViewController: UIViewController {
                 return
         }
         
-        title = entry.title
-        titleTextField.text = entry.title
-        bodyTextView.text = entry.bodyText
+        if let stringTitle = entry.title
+        {
+            self.title = stringTitle
+            titleTextField.text = stringTitle
+        }
+
+        if let bodyText = entry.bodyText
+        {
+            bodyTextView.text = bodyText
+        }
         
         var segmentIndex = 0
         
@@ -60,6 +67,7 @@ class EntryDetailViewController: UIViewController {
         case Mood.good.rawValue:
             segmentIndex = 2
         default:
+            segmentIndex = 0
             break
         }
         

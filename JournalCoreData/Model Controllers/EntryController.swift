@@ -136,7 +136,7 @@ class EntryController {
         guard let identifier = identifier else { return nil }
         
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "identfier == %@", identifier)
+        fetchRequest.predicate = NSPredicate(format: "identifier == %@", identifier)
         
         var result: Entry? = nil
         do {
@@ -150,9 +150,9 @@ class EntryController {
     private func updateEntries(with representations: [EntryRepresentation], in context: NSManagedObjectContext) {
         context.performAndWait {
             for entryRep in representations {
-                guard let identifier = entryRep.identifier else { continue }
+//                guard let identifier = entryRep.identifier else { continue }
                 
-                let entry = self.fetchSingleEntryFromPersistentStore(with: identifier, in: context)
+                let entry = self.fetchSingleEntryFromPersistentStore(with: entryRep.identifier, in: context)
                 if let entry = entry, entry != entryRep {
                     self.update(entry: entry, with: entryRep)
                 } else if entry == nil {

@@ -9,11 +9,11 @@
 import Foundation
 
 struct EntryRepresentation: Decodable {
-    var title: String?
-    var bodyText: String?
-    var mood: String?
-    var timestamp: Date?
-    var identifier: String?
+    var title: String
+    var bodyText: String
+    var mood: String
+    var timestamp: Date
+    var identifier: String
 }
 
 func ==(lhs: EntryRepresentation, rhs: Entry) -> Bool {
